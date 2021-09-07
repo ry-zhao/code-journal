@@ -1,12 +1,18 @@
 /* exported data */
 
+var data = {
+  view: 'entry-form',
+  entries: [],
+  editing: null,
+  nextEntryId: 1
+};
+
 if (localStorage.getItem('data')) {
-  var data = JSON.parse(localStorage.getItem('data'));
-} else {
-  data = {
-    view: 'entry-form',
-    entries: [],
-    editing: null,
-    nextEntryId: 1
-  };
+  data = JSON.parse(localStorage.getItem('data'));
 }
+
+function updateData(event) {
+  localStorage.setItem('data', JSON.stringify(data));
+}
+
+window.addEventListener('beforeunload', updateData);
