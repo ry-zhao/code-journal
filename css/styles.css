@@ -6,17 +6,6 @@ img {
   object-fit: cover;
 }
 
-button {
-  width: 73px;
-  height: 32px;
-  margin-top: 22px;
-  margin-bottom: 22px;
-  border-radius: 0.25rem;
-  color: white;
-  background-color: #4b2373;
-  border: none;
-}
-
 label {
   font-weight: bold;
 }
@@ -41,7 +30,20 @@ textarea:focus {
   outline-color: #4b2373;
 }
 
-button:active {
+/* Semantic classes */
+
+.save-button {
+  width: 73px;
+  height: 32px;
+  margin-top: 22px;
+  margin-bottom: 22px;
+  border-radius: 0.25rem;
+  color: white;
+  background-color: #4b2373;
+  border: none;
+}
+
+.save-button:active {
   transform: translateY(5px);
 }
 
