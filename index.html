@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Code Journal</title>
   <link rel="icon" href="images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Proza+Libre&display=swap" rel="stylesheet">
   <link
     rel="stylesheet"
     crossorigin="anonymous"
@@ -14,29 +17,59 @@
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-  <header>
+<body class="background-color-gray font-family-proza-libre">
+  <header class="background-color-purple white">
+    <div class="container">
+      <div class="row">
+        <div class="column-full">
+          <h3>Code Journal</h3>
+        </div>
+      </div>
+    </div>
   </header>
   <main>
-    <div data-view="entry-form">
-      <form>
-        <div>
-          <label for="title">Title</label>
-          <br>
-          <input id="title">
-        </div>
-        <div>
-          <label for="photo-url">Photo URL</label>
-          <br>
-          <input id="photo-url">
-        </div>
-        <div>
-          <label for="notes">Notes</label>
-          <br>
-          <textarea id="notes"></textarea>
-        </div>
-        <button>SAVE</button>
-      </form>
+    <div class="container">
+      <div data-view="entry-form">
+        <form>
+          <div class="row">
+            <div class="column-full">
+              <h1>New Entry</h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-half">
+              <img src="images/placeholder-image-square.jpg">
+            </div>
+            <div class="column-half">
+              <div>
+                <div class="margin-bottom-9px margin-top-25px-wide-0">
+                  <label for="title">Title</label>
+                </div>
+                <input id="title">
+              </div>
+              <div>
+                <div class="margin-bottom-9px margin-top-25px">
+                  <label for="photo-url">Photo URL</label>
+                </div>
+                <input id="photo-url">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-full">
+              <div>
+                <div class="margin-bottom-9px margin-top-25px">
+                  <label for="notes">Notes</label>
+                </div>
+                <textarea id="notes"></textarea>
+              </div>
+              <div class="text-align-right">
+                <button>SAVE</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   </main>
   <script src="js/data.js"></script>
