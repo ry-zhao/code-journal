@@ -18,6 +18,7 @@ function saveEntry(event) {
   data.entries.unshift(entry);
   img.setAttribute('src', 'images/placeholder-image-square.jpg');
   form.reset();
+  localStorage.setItem('data', JSON.stringify(data));
 }
 
 function updateImg(event) {
