@@ -4,6 +4,9 @@
 var img = document.querySelector('.new-image');
 var form = document.querySelector('form');
 var entries = document.querySelector('ul');
+var entryForm = document.querySelector('div[data-view="entry-form"]');
+var entryDisplay = document.querySelector('div[data-view="entries"]');
+var entriesAnchor = document.querySelector('#entries-anchor');
 
 function saveEntry(event) {
   event.preventDefault();
@@ -50,5 +53,13 @@ function appendEntries(event) {
     entries.appendChild(loadEntry(data.entries[i]));
   }
 }
+
+function displayEntries(event) {
+  entryDisplay.className = 'container';
+  entryForm.className = 'container hidden';
+  data.view = 'entries';
+}
+
+entriesAnchor.addEventListener('click', displayEntries);
 
 window.addEventListener('DOMContentLoaded', appendEntries);

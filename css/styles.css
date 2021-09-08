@@ -10,6 +10,11 @@ ul {
   padding: 0;
 }
 
+a {
+  color: white;
+  text-decoration: none;
+}
+
 label {
   font-weight: bold;
 }
@@ -53,7 +58,13 @@ textarea:focus {
   transform: translateY(0.25rem);
 }
 
+/* Semantic Read classes */
+
 /* Functional classes */
+
+.hidden {
+  display: none;
+}
 
 .font-family-proza-libre {
   font-family: 'Proza Libre', sans-serif;
