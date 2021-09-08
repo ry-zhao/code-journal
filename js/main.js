@@ -1,7 +1,7 @@
 /* global data */
 /* exported data */
 
-var img = document.querySelector('img');
+var img = document.querySelector('.new-image');
 var form = document.querySelector('form');
 
 function saveEntry(event) {
