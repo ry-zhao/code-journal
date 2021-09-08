@@ -3,6 +3,7 @@
 
 var img = document.querySelector('.new-image');
 var form = document.querySelector('form');
+var entries = document.querySelector('ul');
 
 function saveEntry(event) {
   event.preventDefault();
@@ -43,3 +44,11 @@ function loadEntry(entry) {
   newEntry.append(columnOne, columnTwo);
   return newEntry;
 }
+
+function appendEntries(event) {
+  for (var i = 0; i < data.entries.length; i++) {
+    entries.appendChild(loadEntry(data.entries[i]));
+  }
+}
+
+window.addEventListener('DOMContentLoaded', appendEntries);
