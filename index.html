@@ -19,16 +19,23 @@
 </head>
 <body class="background-color-gray font-family-proza-libre">
   <header class="background-color-purple white">
-    <div class="container">
-      <div class="row">
-        <div class="column-full">
-          <h3>Code Journal</h3>
-        </div>
-      </div>
+    <div class="container row align-items-center">
+      <h3>Code Journal</h3>
+      <nav>
+        <a class="margin-left-1rem" id="entries-anchor" data-view="entries" href="#">Entries</a>
+      </nav>
     </div>
   </header>
   <main>
-    <div class="container" data-view="entry-form">
+    <div class="view container hidden" data-view="entries">
+      <div class="row align-items-center justify-content-space-between">
+        <h1>Entries</h1>
+        <button class="new-button background-color-purple white" data-view="entry-form">NEW</button>
+      </div>
+      <ul>
+      </ul>
+    </div>
+    <div class="view container hidden" data-view="entry-form">
       <form>
         <div class="row">
           <div class="column-full">
@@ -37,17 +44,17 @@
         </div>
         <div class="row">
           <div class="column-half">
-            <img src="images/placeholder-image-square.jpg">
+            <img class="new-image" src="images/placeholder-image-square.jpg">
           </div>
           <div class="column-half">
             <div>
-              <div class="margin-bottom-9px margin-top-25px-wide-0">
+              <div class="margin-bottom-p5rem margin-top-1rem-wide-0">
                 <label for="title">Title</label>
               </div>
               <input required="required" id="title" name="title">
             </div>
             <div>
-              <div class="margin-bottom-9px margin-top-25px">
+              <div class="margin-bottom-p5rem margin-top-1rem">
                 <label for="photo-url">Photo URL</label>
               </div>
               <input required="required" id="photo-url" name="photo-url">
@@ -57,13 +64,14 @@
         <div class="row">
           <div class="column-full">
             <div>
-              <div class="margin-bottom-9px margin-top-25px">
+              <div class="margin-bottom-p5rem margin-top-1rem">
                 <label for="notes">Notes</label>
               </div>
               <textarea required="required" id="notes" name="notes"></textarea>
             </div>
             <div class="text-align-right">
-              <input class="save-button" type="submit" value="SAVE">
+              <input class="save-button background-color-purple white"
+                type="submit" value="SAVE">
             </div>
           </div>
         </div>
