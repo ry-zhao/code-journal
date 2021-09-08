@@ -19,7 +19,7 @@
 </head>
 <body class="background-color-gray font-family-proza-libre">
   <header class="background-color-purple white">
-    <div class="container flex align-items-center">
+    <div class="container row align-items-center">
       <h3>Code Journal</h3>
       <nav>
         <a class="margin-left-1rem" id="entries-anchor" href="#">Entries</a>
@@ -27,16 +27,23 @@
     </div>
   </header>
   <main>
-    <div class="container" data-view="entries">
-      <div class="row">
-        <div class="column-full">
+    <div class="container hidden" data-view="entries">
+      <div class="row align-items-center">
+        <div class="column-half">
           <h1>Entries</h1>
+        </div>
+        <div class="column-half">
+          <div class="row ">
+            <div class="column-full text-align-right">
+              <button class="new-button background-color-purple white">NEW</button>
+            </div>
+          </div>
         </div>
       </div>
       <ul>
       </ul>
     </div>
-    <div class="container" data-view="entry-form">
+    <div class="container hidden" data-view="entry-form">
       <form>
         <div class="row">
           <div class="column-full">

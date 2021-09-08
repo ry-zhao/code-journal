@@ -60,6 +60,20 @@ textarea:focus {
 
 /* Semantic Read classes */
 
+.new-button {
+  width: 4.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+  border: none;
+}
+
+.new-button:active {
+  transform: translateY(0.25rem);
+}
+
 /* Functional classes */
 
 .hidden {
