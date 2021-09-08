@@ -34,6 +34,11 @@ textarea:focus {
   outline-color: #4b2373;
 }
 
+.header-text {
+  font-size: 1.17rem;
+  font-weight: bold;
+}
+
 /* Semantic Create classes */
 
 .save-button {
@@ -82,8 +87,16 @@ textarea:focus {
   margin-bottom: 2rem;
 }
 
+.margin-left-1rem {
+  margin-left: 1rem;
+}
+
 .text-align-right {
   text-align: right;
+}
+
+.align-items-center {
+  align-items: center;
 }
 
 @media screen and (min-width: 768px) {
