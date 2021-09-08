@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Code Journal</title>
   <link rel="icon" href="images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Proza+Libre&display=swap" rel="stylesheet">
   <link
     rel="stylesheet"
     crossorigin="anonymous"
@@ -14,10 +17,58 @@
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-  <header>
+<body class="background-color-gray font-family-proza-libre">
+  <header class="background-color-purple white">
+    <div class="container">
+      <div class="row">
+        <div class="column-full">
+          <h3>Code Journal</h3>
+        </div>
+      </div>
+    </div>
   </header>
   <main>
+    <div class="container" data-view="entry-form">
+      <form>
+        <div class="row">
+          <div class="column-full">
+            <h1>New Entry</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column-half">
+            <img src="images/placeholder-image-square.jpg">
+          </div>
+          <div class="column-half">
+            <div>
+              <div class="margin-bottom-9px margin-top-25px-wide-0">
+                <label for="title">Title</label>
+              </div>
+              <input required="required" id="title" name="title">
+            </div>
+            <div>
+              <div class="margin-bottom-9px margin-top-25px">
+                <label for="photo-url">Photo URL</label>
+              </div>
+              <input required="required" id="photo-url" name="photo-url">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column-full">
+            <div>
+              <div class="margin-bottom-9px margin-top-25px">
+                <label for="notes">Notes</label>
+              </div>
+              <textarea required="required" id="notes" name="notes"></textarea>
+            </div>
+            <div class="text-align-right">
+              <input class="save-button" type="submit" value="SAVE">
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
