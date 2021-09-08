@@ -18,6 +18,7 @@ function saveEntry(event) {
   data.nextEntryId++;
   data.entries.unshift(entry);
   img.setAttribute('src', 'images/placeholder-image-square.jpg');
+  entries.prepend(loadEntry(entry));
   form.reset();
 }
 
