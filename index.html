@@ -22,20 +22,20 @@
     <div class="container row align-items-center">
       <h3>Code Journal</h3>
       <nav>
-        <a class="margin-left-1rem" id="entries-anchor" href="#">Entries</a>
+        <a class="margin-left-1rem" id="entries-anchor" data-view="entries" href="#">Entries</a>
       </nav>
     </div>
   </header>
   <main>
-    <div class="container hidden" data-view="entries">
+    <div class="view container hidden" data-view="entries">
       <div class="row align-items-center justify-content-space-between">
         <h1>Entries</h1>
-        <button class="new-button background-color-purple white">NEW</button>
+        <button class="new-button background-color-purple white" data-view="entry-form">NEW</button>
       </div>
       <ul>
       </ul>
     </div>
-    <div class="container hidden" data-view="entry-form">
+    <div class="view container hidden" data-view="entry-form">
       <form>
         <div class="row">
           <div class="column-full">

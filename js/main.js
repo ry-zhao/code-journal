@@ -4,18 +4,11 @@
 var img = document.querySelector('.new-image');
 var form = document.querySelector('form');
 var entries = document.querySelector('ul');
-var entryForm = document.querySelector('div[data-view="entry-form"]');
-var entryDisplay = document.querySelector('div[data-view="entries"]');
 var entriesAnchor = document.querySelector('#entries-anchor');
 var newButton = document.querySelector('.new-button');
+var views = document.querySelectorAll('.view');
 
-switch (data.view) {
-  case 'entry-form':
-    entryForm.className = 'container';
-    break;
-  case 'entries':
-    entryDisplay.className = 'container';
-}
+switchViews(data.view);
 
 function saveEntry(event) {
   event.preventDefault();
@@ -29,7 +22,7 @@ function saveEntry(event) {
   img.setAttribute('src', 'images/placeholder-image-square.jpg');
   entries.prepend(loadEntry(entry));
   form.reset();
-  displayEntries();
+  switchViews('entries');
   window.scroll(0, 0);
 }
 
@@ -66,20 +59,23 @@ function appendEntries(event) {
   }
 }
 
-function displayEntries() {
-  entryDisplay.className = 'container';
-  entryForm.className = 'container hidden';
-  data.view = 'entries';
+function handleViewNavigation(event) {
+  switchViews(event.target.getAttribute('data-view'));
 }
 
-function displayForm() {
-  entryDisplay.className = 'container hidden';
-  entryForm.className = 'container';
-  data.view = 'entry-form';
+function switchViews(view) {
+  for (var j = 0; j < views.length; j++) {
+    if (views[j].getAttribute('data-view') === view) {
+      views[j].className = 'view container';
+    } else {
+      views[j].className = 'view container hidden';
+    }
+  }
+  data.view = view;
 }
 
-newButton.addEventListener('click', displayForm);
+newButton.addEventListener('click', handleViewNavigation);
 
-entriesAnchor.addEventListener('click', displayEntries);
+entriesAnchor.addEventListener('click', handleViewNavigation);
 
 window.addEventListener('DOMContentLoaded', appendEntries);
