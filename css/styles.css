@@ -124,6 +124,10 @@ textarea:focus {
   align-items: center;
 }
 
+.justify-content-space-between {
+  justify-content: space-between;
+}
+
 @media screen and (min-width: 768px) {
   .margin-top-1rem-wide-0 {
     margin-top: 0;
