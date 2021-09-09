@@ -9,6 +9,8 @@ var newButton = document.querySelector('.new-button');
 var views = document.querySelectorAll('.view');
 var newEditEntry = document.querySelector('.new-edit-entry');
 var deleteAnchor = document.querySelector('.delete-anchor');
+var overlay = document.querySelector('.overlay');
+var modal = document.querySelector('.modal');
 
 switchViews(data.view);
 
@@ -117,7 +119,14 @@ function openEditor(event) {
   newEditEntry.textContent = 'Edit Entry';
 }
 
+function openModal(event) {
+  overlay.className = 'overlay';
+  modal.className = 'modal';
+}
+
 entries.addEventListener('click', openEditor);
+
+deleteAnchor.addEventListener('click', openModal);
 
 newButton.addEventListener('click', handleViewNavigation);
 
