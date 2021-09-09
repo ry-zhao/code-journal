@@ -8,13 +8,24 @@ var entriesAnchor = document.querySelector('#entries-anchor');
 var newButton = document.querySelector('.new-button');
 var views = document.querySelectorAll('.view');
 var newEditEntry = document.querySelector('.new-edit-entry');
-var edit = false;
 
 switchViews(data.view);
 
 function saveEntry(event) {
   event.preventDefault();
-  if (edit === false) {
+  if (data.editing) {
+    data.editing.title = form.elements.title.value;
+    data.editing.photoUrl = form.elements['photo-url'].value;
+    data.editing.notes = form.elements.notes.value;
+    for (var x = 0; x < entries.children.length; x++) {
+      if (data.editing.id === parseInt(entries.children[x].getAttribute('data-entry-id'))) {
+        entries.children[x].querySelector('img').setAttribute('src', data.editing.photoUrl);
+        entries.children[x].querySelector('h2').textContent = data.editing.title;
+        entries.children[x].querySelector('p').textContent = data.editing.notes;
+      }
+    }
+    data.editing = null;
+  } else {
     var entry = {};
     entry.title = form.elements.title.value;
     entry.photoUrl = form.elements['photo-url'].value;
@@ -24,18 +35,10 @@ function saveEntry(event) {
     data.entries.unshift(entry);
     img.setAttribute('src', 'images/placeholder-image-square.jpg');
     entries.prepend(loadEntry(entry));
-  } else {
-    data.editing.title = form.elements.title.value;
-    data.editing.photoUrl = form.elements['photo-url'].value;
-    data.editing.notes = form.elements.notes.value;
-    edit = false;
-    data.editing = null;
   }
   form.reset();
-  img.setAttribute('src', 'images/placeholder-image-square.jpg');
-  entries.innerHTML = '';
-  appendEntries();
   switchViews('entries');
+  img.setAttribute('src', 'images/placeholder-image-square.jpg');
   newEditEntry.textContent = 'New Entry';
   entriesAnchor.className = 'margin-left-1rem';
 }
@@ -112,7 +115,6 @@ function openEditor(event) {
   form.elements.notes.value = data.editing.notes;
   newEditEntry.textContent = 'Edit Entry';
   entriesAnchor.className = 'hidden margin-left-1rem';
-  edit = true;
 }
 
 entries.addEventListener('click', openEditor);
