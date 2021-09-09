@@ -19,9 +19,8 @@ function saveEntry(event) {
     data.editing.notes = form.elements.notes.value;
     for (var x = 0; x < entries.children.length; x++) {
       if (data.editing.id === parseInt(entries.children[x].getAttribute('data-entry-id'))) {
-        entries.children[x].querySelector('img').setAttribute('src', data.editing.photoUrl);
-        entries.children[x].querySelector('h2').textContent = data.editing.title;
-        entries.children[x].querySelector('p').textContent = data.editing.notes;
+        entries.children[x].replaceWith(loadEntry(data.editing));
+        break;
       }
     }
     data.editing = null;
@@ -40,7 +39,6 @@ function saveEntry(event) {
   switchViews('entries');
   img.setAttribute('src', 'images/placeholder-image-square.jpg');
   newEditEntry.textContent = 'New Entry';
-  entriesAnchor.className = 'margin-left-1rem';
 }
 
 function updateImg(event) {
@@ -114,7 +112,6 @@ function openEditor(event) {
   form.elements['photo-url'].value = data.editing.photoUrl;
   form.elements.notes.value = data.editing.notes;
   newEditEntry.textContent = 'Edit Entry';
-  entriesAnchor.className = 'hidden margin-left-1rem';
 }
 
 entries.addEventListener('click', openEditor);
