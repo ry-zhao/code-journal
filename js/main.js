@@ -83,7 +83,7 @@ function openEditor(event) {
   if (event.target.tagName !== 'I') {
     return;
   }
-  console.log(event.target);
+  switchViews('entry-form');
 }
 
 entries.addEventListener('click', openEditor);
