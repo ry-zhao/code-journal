@@ -50,7 +50,7 @@ function loadEntry(entry) {
   editIcon.className = 'fas fa-pen purple';
   entryHeader.append(title, editIcon);
   var newEntry = document.createElement('div');
-  newEntry.className = 'row margin-bottom-2rem';
+  newEntry.className = 'entry row margin-bottom-2rem';
   columnOne.append(img);
   columnTwo.append(entryHeader, notes);
   newEntry.append(columnOne, columnTwo);
@@ -84,6 +84,7 @@ function openEditor(event) {
     return;
   }
   switchViews('entry-form');
+  data.editing = event.target.closest('.entry');
 }
 
 entries.addEventListener('click', openEditor);
