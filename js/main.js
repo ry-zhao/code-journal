@@ -8,6 +8,7 @@ var entriesAnchor = document.querySelector('#entries-anchor');
 var newButton = document.querySelector('.new-button');
 var views = document.querySelectorAll('.view');
 var newEditEntry = document.querySelector('.new-edit-entry');
+var deleteAnchor = document.querySelector('.delete-anchor');
 
 switchViews(data.view);
 
@@ -23,6 +24,7 @@ function saveEntry(event) {
         break;
       }
     }
+    deleteAnchor.className = 'hidden delete-anchor red';
     data.editing = null;
   } else {
     var entry = {};
@@ -107,6 +109,7 @@ function openEditor(event) {
       break;
     }
   }
+  deleteAnchor.className = 'delete-anchor red';
   img.setAttribute('src', data.editing.photoUrl);
   form.elements.title.value = data.editing.title;
   form.elements['photo-url'].value = data.editing.photoUrl;

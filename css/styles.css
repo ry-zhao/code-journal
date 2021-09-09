@@ -14,11 +14,6 @@ ul {
   padding: 0;
 }
 
-a {
-  color: white;
-  text-decoration: none;
-}
-
 label {
   font-weight: bold;
 }
@@ -48,7 +43,12 @@ textarea:focus {
   font-weight: bold;
 }
 
-/* Semantic Create classes */
+/* Semantic classes */
+
+.entries-anchor {
+  color: white;
+  text-decoration: none;
+}
 
 .save-button {
   width: 5rem;
@@ -62,8 +62,6 @@ textarea:focus {
   transform: translateY(0.25rem);
 }
 
-/* Semantic Read classes */
-
 .new-button {
   width: 4.5rem;
   padding-top: 0.75rem;
@@ -76,6 +74,11 @@ textarea:focus {
 
 .new-button:active {
   transform: translateY(0.25rem);
+}
+
+.delete-anchor {
+  color: #dc2626;
+  font-family: Roboto, sans-serif;
 }
 
 /* Functional classes */
@@ -134,6 +137,14 @@ textarea:focus {
 
 .justify-content-space-between {
   justify-content: space-between;
+}
+
+.justify-content-right {
+  justify-content: right;
+}
+
+.padding-0 {
+  padding: 0;
 }
 
 @media screen and (min-width: 768px) {
