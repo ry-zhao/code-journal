@@ -42,13 +42,18 @@ function loadEntry(entry) {
   img.setAttribute('src', entry.photoUrl);
   var notes = document.createElement('p');
   notes.textContent = entry.notes;
+  var entryHeader = document.createElement('div');
+  entryHeader.className = 'row justify-content-space-between';
   var title = document.createElement('h2');
   title.className = 'margin-top-1rem-wide-0';
   title.textContent = entry.title;
+  var editIcon = document.createElement('i');
+  editIcon.className = 'fas fa-pen purple';
+  entryHeader.append(title, editIcon);
   var newEntry = document.createElement('div');
   newEntry.className = 'row margin-bottom-2rem';
   columnOne.append(img);
-  columnTwo.append(title, notes);
+  columnTwo.append(entryHeader, notes);
   newEntry.append(columnOne, columnTwo);
   return newEntry;
 }

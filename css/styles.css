@@ -6,6 +6,10 @@ img {
   object-fit: cover;
 }
 
+i {
+  font-size: 1.25rem;
+}
+
 ul {
   padding: 0;
 }
@@ -86,6 +90,10 @@ textarea:focus {
 
 .white {
   color: white;
+}
+
+.purple {
+  color: #4b2373;
 }
 
 .background-color-gray {
