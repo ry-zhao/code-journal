@@ -10,8 +10,8 @@ var views = document.querySelectorAll('.view');
 var newEditEntry = document.querySelector('.new-edit-entry');
 var deleteAnchor = document.querySelector('.delete-anchor');
 var overlay = document.querySelector('.overlay');
-var modal = document.querySelector('.modal');
 var cancelButton = document.querySelector('.cancel-button');
+var confirmButton = document.querySelector('.confirm-button');
 
 switchViews(data.view);
 
@@ -122,12 +122,29 @@ function openEditor(event) {
 
 function openModal(event) {
   overlay.className = 'overlay';
-  modal.className = 'modal';
 }
 
 function closeModal(event) {
   overlay.className = 'hidden overlay';
-  modal.className = 'hidden modal';
+}
+
+function deleteEntry(event) {
+  overlay.className = 'hidden overlay';
+  var temp = [];
+  for (var y = 0; y < data.entries.length; y++) {
+    if (data.entries[y] !== data.editing) {
+      temp.push(data.entries[y]);
+    }
+  }
+  data.entries = temp;
+  for (var z = 0; z < entries.children.length; z++) {
+    if (data.editing.id === parseInt(entries.children[z].getAttribute('data-entry-id'))) {
+      entries.children[z].remove();
+      break;
+    }
+  }
+  data.editing = null;
+  switchViews('entries');
 }
 
 entries.addEventListener('click', openEditor);
@@ -135,6 +152,8 @@ entries.addEventListener('click', openEditor);
 deleteAnchor.addEventListener('click', openModal);
 
 cancelButton.addEventListener('click', closeModal);
+
+confirmButton.addEventListener('click', deleteEntry);
 
 newButton.addEventListener('click', handleViewNavigation);
 
