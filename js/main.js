@@ -90,6 +90,7 @@ function switchViews(view) {
       views[j].className = 'view container hidden';
     }
   }
+  scroll(0, 0);
   data.view = view;
 }
 
