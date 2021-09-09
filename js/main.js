@@ -11,6 +11,7 @@ var newEditEntry = document.querySelector('.new-edit-entry');
 var deleteAnchor = document.querySelector('.delete-anchor');
 var overlay = document.querySelector('.overlay');
 var modal = document.querySelector('.modal');
+var cancelButton = document.querySelector('.cancel-button');
 
 switchViews(data.view);
 
@@ -124,9 +125,16 @@ function openModal(event) {
   modal.className = 'modal';
 }
 
+function closeModal(event) {
+  overlay.className = 'hidden overlay';
+  modal.className = 'hidden modal';
+}
+
 entries.addEventListener('click', openEditor);
 
 deleteAnchor.addEventListener('click', openModal);
+
+cancelButton.addEventListener('click', closeModal);
 
 newButton.addEventListener('click', handleViewNavigation);
 
