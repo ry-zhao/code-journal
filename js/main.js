@@ -7,6 +7,8 @@ var entries = document.querySelector('ul');
 var entriesAnchor = document.querySelector('#entries-anchor');
 var newButton = document.querySelector('.new-button');
 var views = document.querySelectorAll('.view');
+var newEditEntry = document.querySelector('.new-edit-entry');
+var edit = false;
 
 switchViews(data.view);
 
@@ -84,7 +86,20 @@ function openEditor(event) {
     return;
   }
   switchViews('entry-form');
-  data.editing = event.target.closest('.entry');
+  var currentEntry = event.target.closest('.entry');
+  for (var k = 0; k < data.entries.length; k++) {
+    if (data.entries[k].id === parseInt(currentEntry.getAttribute('data-entry-id'))) {
+      data.editing = data.entries[k];
+      break;
+    }
+  }
+  img.setAttribute('src', data.editing.photoUrl);
+  form.elements.title.value = data.editing.title;
+  form.elements['photo-url'].value = data.editing.photoUrl;
+  form.elements.notes.value = data.editing.notes;
+  newEditEntry.textContent = 'Edit Entry';
+  entriesAnchor.className = 'hidden margin-left-1rem';
+  edit = true;
 }
 
 entries.addEventListener('click', openEditor);
