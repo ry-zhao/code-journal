@@ -79,6 +79,15 @@ function switchViews(view) {
   data.view = view;
 }
 
+function openEditor(event) {
+  if (event.target.tagName !== 'I') {
+    return;
+  }
+  console.log(event.target);
+}
+
+entries.addEventListener('click', openEditor);
+
 newButton.addEventListener('click', handleViewNavigation);
 
 entriesAnchor.addEventListener('click', handleViewNavigation);
