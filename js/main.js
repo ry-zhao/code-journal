@@ -14,18 +14,30 @@ switchViews(data.view);
 
 function saveEntry(event) {
   event.preventDefault();
-  var entry = {};
-  entry.title = form.elements.title.value;
-  entry.photoUrl = form.elements['photo-url'].value;
-  entry.notes = form.elements.notes.value;
-  entry.id = data.nextEntryId;
-  data.nextEntryId++;
-  data.entries.unshift(entry);
-  img.setAttribute('src', 'images/placeholder-image-square.jpg');
-  entries.prepend(loadEntry(entry));
+  if (edit === false) {
+    var entry = {};
+    entry.title = form.elements.title.value;
+    entry.photoUrl = form.elements['photo-url'].value;
+    entry.notes = form.elements.notes.value;
+    entry.id = data.nextEntryId;
+    data.nextEntryId++;
+    data.entries.unshift(entry);
+    img.setAttribute('src', 'images/placeholder-image-square.jpg');
+    entries.prepend(loadEntry(entry));
+  } else {
+    data.editing.title = form.elements.title.value;
+    data.editing.photoUrl = form.elements['photo-url'].value;
+    data.editing.notes = form.elements.notes.value;
+    edit = false;
+    data.editing = null;
+  }
   form.reset();
+  img.setAttribute('src', 'images/placeholder-image-square.jpg');
+  entries.innerHTML = '';
+  appendEntries();
   switchViews('entries');
-  window.scroll(0, 0);
+  newEditEntry.textContent = 'New Entry';
+  entriesAnchor.className = 'margin-left-1rem';
 }
 
 function updateImg(event) {
@@ -60,7 +72,7 @@ function loadEntry(entry) {
   return newEntry;
 }
 
-function appendEntries(event) {
+function appendEntries() {
   for (var i = 0; i < data.entries.length; i++) {
     entries.appendChild(loadEntry(data.entries[i]));
   }
