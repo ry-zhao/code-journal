@@ -43,9 +43,8 @@ function loadEntry(entry) {
   var notes = document.createElement('p');
   notes.textContent = entry.notes;
   var entryHeader = document.createElement('div');
-  entryHeader.className = 'row justify-content-space-between';
+  entryHeader.className = 'row justify-content-space-between align-items-center';
   var title = document.createElement('h2');
-  title.className = 'margin-top-1rem-wide-0';
   title.textContent = entry.title;
   var editIcon = document.createElement('i');
   editIcon.className = 'fas fa-pen purple';
@@ -55,6 +54,7 @@ function loadEntry(entry) {
   columnOne.append(img);
   columnTwo.append(entryHeader, notes);
   newEntry.append(columnOne, columnTwo);
+  newEntry.setAttribute('data-entry-id', entry.id);
   return newEntry;
 }
 
