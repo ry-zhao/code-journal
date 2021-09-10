@@ -88,6 +88,10 @@ function appendEntries() {
 
 function handleViewNavigation(event) {
   switchViews(event.target.getAttribute('data-view'));
+  if (entries.children.length !== data.entries.length) {
+    entries.innerHTML = '';
+    appendEntries();
+  }
 }
 
 function switchViews(view) {
@@ -154,7 +158,18 @@ function deleteEntry(event) {
 }
 
 function search() {
-  console.log(searchBar.value);
+  var newDisplay = [];
+  for (var a = 0; a < data.entries.length; a++) {
+    if (data.entries[a].title.includes(searchBar.value) ||
+    data.entries[a].notes.includes(searchBar.value)) {
+      newDisplay.unshift(data.entries[a]);
+    }
+  }
+  entries.innerHTML = '';
+  for (var b = 0; b < newDisplay.length; b++) {
+    entries.prepend(loadEntry(newDisplay[b]));
+  }
+
 }
 
 searchButton.addEventListener('click', search);
