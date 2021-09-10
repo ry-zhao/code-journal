@@ -18,6 +18,10 @@
   width: 100%;
 }
 
+.column-permahalf {
+  width: 50%;
+}
+
 .flex {
   display: flex;
 }
