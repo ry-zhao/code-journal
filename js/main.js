@@ -169,7 +169,7 @@ function search() {
   for (var b = 0; b < newDisplay.length; b++) {
     entries.prepend(loadEntry(newDisplay[b]));
   }
-
+  searchBar.value = '';
 }
 
 searchButton.addEventListener('click', search);
