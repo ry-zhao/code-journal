@@ -146,6 +146,10 @@ button:active {
   color: #4b2373;
 }
 
+.width-75-percent {
+  width: 75%;
+}
+
 .background-color-gray {
   background-color: #f0f0f0;
 }
@@ -186,8 +190,8 @@ button:active {
   justify-content: space-between;
 }
 
-.justify-content-right {
-  justify-content: right;
+.justify-content-flex-end {
+  justify-content: flex-end;
 }
 
 .padding-0 {

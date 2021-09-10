@@ -2,7 +2,7 @@
 /* exported data */
 
 var img = document.querySelector('.new-image');
-var form = document.querySelector('form');
+var form = document.querySelector('.entry-form');
 var entries = document.querySelector('ul');
 var entriesAnchor = document.querySelector('#entries-anchor');
 var newButton = document.querySelector('.new-button');

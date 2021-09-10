@@ -33,11 +33,19 @@
     </div>
   </div>
   <header class="background-color-purple white">
-    <div class="container row align-items-center">
-      <h3>Code Journal</h3>
-      <nav>
-        <a class="margin-left-1rem entries-anchor" id="entries-anchor" data-view="entries" href="#">Entries</a>
-      </nav>
+    <div class="row container">
+      <div class="column-permahalf flex align-items-center">
+        <h3>Code Journal</h3>
+        <nav>
+          <a class="margin-left-1rem entries-anchor" id="entries-anchor" data-view="entries" href="#">Entries</a>
+        </nav>
+      </div>
+      <div class="column-permahalf flex align-items-center justify-content-flex-end">
+        <form class="flex width-75-percent">
+          <input type="search">
+          <i class="fas fa-search"></i>
+        </form>
+      </div>
     </div>
   </header>
   <main>
@@ -50,7 +58,7 @@
       </ul>
     </div>
     <div class="view container hidden" data-view="entry-form">
-      <form>
+      <form class="entry-form">
         <div class="row">
           <div class="column-full">
             <h1 class="new-edit-entry">New Entry</h1>
