@@ -29,8 +29,6 @@ function saveEntry(event) {
         break;
       }
     }
-    deleteAnchor.className = 'hidden delete-anchor red';
-    data.editing = null;
   } else {
     var entry = {};
     entry.title = form.elements.title.value;
@@ -88,9 +86,14 @@ function appendEntries() {
 
 function handleViewNavigation(event) {
   switchViews(event.target.getAttribute('data-view'));
-  if (entries.children.length !== data.entries.length) {
-    entries.innerHTML = '';
-    appendEntries();
+  if (event.target === entriesAnchor) {
+    if (entries.children.length !== data.entries.length) {
+      entries.innerHTML = '';
+      appendEntries();
+    }
+  }
+  if (event.target === newButton) {
+    clearForm();
   }
 }
 
@@ -149,11 +152,6 @@ function deleteEntry(event) {
       break;
     }
   }
-  img.setAttribute('src', 'images/placeholder-image-square.jpg');
-  deleteAnchor.className = 'hidden delete-anchor red';
-  data.editing = null;
-  form.reset();
-  newEditEntry.textContent = 'New Entry';
   switchViews('entries');
 }
 
@@ -170,6 +168,15 @@ function search() {
     entries.prepend(loadEntry(newDisplay[b]));
   }
   searchBar.value = '';
+  switchViews('entries');
+}
+
+function clearForm() {
+  data.editing = null;
+  newEditEntry.textContent = 'New Entry';
+  img.setAttribute('src', 'images/placeholder-image-square.jpg');
+  form.reset();
+  deleteAnchor.className = 'hidden delete-anchor red';
 }
 
 searchButton.addEventListener('click', search);
