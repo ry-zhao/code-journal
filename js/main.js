@@ -124,12 +124,12 @@ function openModal(event) {
   overlay.className = 'overlay';
 }
 
-function closeModal(event) {
+function closeModal() {
   overlay.className = 'hidden overlay';
 }
 
 function deleteEntry(event) {
-  overlay.className = 'hidden overlay';
+  closeModal();
   var temp = [];
   for (var y = 0; y < data.entries.length; y++) {
     if (data.entries[y] !== data.editing) {
