@@ -2,7 +2,7 @@
 /* exported data */
 
 var img = document.querySelector('.new-image');
-var form = document.querySelector('form');
+var form = document.querySelector('.entry-form');
 var entries = document.querySelector('ul');
 var entriesAnchor = document.querySelector('#entries-anchor');
 var newButton = document.querySelector('.new-button');
@@ -12,6 +12,8 @@ var deleteAnchor = document.querySelector('.delete-anchor');
 var overlay = document.querySelector('.overlay');
 var cancelButton = document.querySelector('.cancel-button');
 var confirmButton = document.querySelector('.confirm-button');
+var searchButton = document.querySelector('.fa-search');
+var searchBar = document.querySelector('.search-bar');
 
 switchViews(data.view);
 
@@ -27,8 +29,6 @@ function saveEntry(event) {
         break;
       }
     }
-    deleteAnchor.className = 'hidden delete-anchor red';
-    data.editing = null;
   } else {
     var entry = {};
     entry.title = form.elements.title.value;
@@ -86,6 +86,15 @@ function appendEntries() {
 
 function handleViewNavigation(event) {
   switchViews(event.target.getAttribute('data-view'));
+  if (event.target === entriesAnchor) {
+    if (entries.children.length !== data.entries.length) {
+      entries.innerHTML = '';
+      appendEntries();
+    }
+  }
+  if (event.target === newButton) {
+    clearForm();
+  }
 }
 
 function switchViews(view) {
@@ -143,13 +152,34 @@ function deleteEntry(event) {
       break;
     }
   }
-  img.setAttribute('src', 'images/placeholder-image-square.jpg');
-  deleteAnchor.className = 'hidden delete-anchor red';
-  data.editing = null;
-  form.reset();
-  newEditEntry.textContent = 'New Entry';
   switchViews('entries');
 }
+
+function search() {
+  var newDisplay = [];
+  for (var a = 0; a < data.entries.length; a++) {
+    if (data.entries[a].title.includes(searchBar.value) ||
+    data.entries[a].notes.includes(searchBar.value)) {
+      newDisplay.unshift(data.entries[a]);
+    }
+  }
+  entries.innerHTML = '';
+  for (var b = 0; b < newDisplay.length; b++) {
+    entries.prepend(loadEntry(newDisplay[b]));
+  }
+  searchBar.value = '';
+  switchViews('entries');
+}
+
+function clearForm() {
+  data.editing = null;
+  newEditEntry.textContent = 'New Entry';
+  img.setAttribute('src', 'images/placeholder-image-square.jpg');
+  form.reset();
+  deleteAnchor.className = 'hidden delete-anchor red';
+}
+
+searchButton.addEventListener('click', search);
 
 entries.addEventListener('click', openEditor);
 

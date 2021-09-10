@@ -60,6 +60,11 @@ button:active {
   font-weight: bold;
 }
 
+.fa-search {
+  padding-left: 1rem;
+  padding-top: 0.4rem;
+}
+
 .overlay {
   background-color: rgba(0, 0, 0, 0.8);
   width: 100%;
@@ -110,10 +115,6 @@ button:active {
   border: none;
 }
 
-.save-button:active {
-  transform: translateY(0.25rem);
-}
-
 .new-button {
   width: 4.5rem;
 }
@@ -124,8 +125,22 @@ button:active {
   margin-bottom: 2rem;
 }
 
-.delete-anchor:active {
+.delete-anchor:hover {
   color: darkred;
+}
+
+.fa-pen:active,
+.save-button:active,
+.fa-search:active {
+  transform: translateY(0.25rem);
+}
+
+.entries-anchor:hover {
+  color: lightgray;
+}
+
+.entries-anchor:active {
+  color: darkgray;
 }
 
 /* Functional classes */
@@ -144,6 +159,10 @@ button:active {
 
 .purple {
   color: #4b2373;
+}
+
+.width-75-percent {
+  width: 75%;
 }
 
 .background-color-gray {
@@ -186,8 +205,8 @@ button:active {
   justify-content: space-between;
 }
 
-.justify-content-right {
-  justify-content: right;
+.justify-content-flex-end {
+  justify-content: flex-end;
 }
 
 .padding-0 {
