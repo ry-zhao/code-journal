@@ -143,7 +143,11 @@ function deleteEntry(event) {
       break;
     }
   }
+  img.setAttribute('src', 'images/placeholder-image-square.jpg');
+  deleteAnchor.className = 'hidden delete-anchor red';
   data.editing = null;
+  form.reset();
+  newEditEntry.textContent = 'New Entry';
   switchViews('entries');
 }
 

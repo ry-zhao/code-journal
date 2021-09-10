@@ -107,6 +107,10 @@ button:active {
 .save-button {
   width: 5rem;
   border: none;
+  position: absolute;
+  right: 0;
+  top: 0.5rem;
+  z-index: 0;
 }
 
 .save-button:active {
@@ -120,6 +124,11 @@ button:active {
 .delete-anchor {
   color: #dc2626;
   font-family: Roboto, sans-serif;
+  margin-bottom: 2rem;
+}
+
+.delete-anchor:active {
+  color: darkred;
 }
 
 /* Functional classes */
@@ -188,9 +197,17 @@ button:active {
   padding: 0;
 }
 
+.padding-top-1rem {
+  padding-top: 1rem;
+}
+
 .padding-left-right-1rem {
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+.position-relative {
+  position: relative;
 }
 
 @media screen and (min-width: 768px) {
