@@ -9,6 +9,9 @@ var newButton = document.querySelector('.new-button');
 var views = document.querySelectorAll('.view');
 var newEditEntry = document.querySelector('.new-edit-entry');
 var deleteAnchor = document.querySelector('.delete-anchor');
+var overlay = document.querySelector('.overlay');
+var cancelButton = document.querySelector('.cancel-button');
+var confirmButton = document.querySelector('.confirm-button');
 
 switchViews(data.view);
 
@@ -117,7 +120,44 @@ function openEditor(event) {
   newEditEntry.textContent = 'Edit Entry';
 }
 
+function openModal(event) {
+  overlay.className = 'overlay';
+}
+
+function closeModal() {
+  overlay.className = 'hidden overlay';
+}
+
+function deleteEntry(event) {
+  closeModal();
+  var temp = [];
+  for (var y = 0; y < data.entries.length; y++) {
+    if (data.entries[y] !== data.editing) {
+      temp.push(data.entries[y]);
+    }
+  }
+  data.entries = temp;
+  for (var z = 0; z < entries.children.length; z++) {
+    if (data.editing.id === parseInt(entries.children[z].getAttribute('data-entry-id'))) {
+      entries.children[z].remove();
+      break;
+    }
+  }
+  img.setAttribute('src', 'images/placeholder-image-square.jpg');
+  deleteAnchor.className = 'hidden delete-anchor red';
+  data.editing = null;
+  form.reset();
+  newEditEntry.textContent = 'New Entry';
+  switchViews('entries');
+}
+
 entries.addEventListener('click', openEditor);
+
+deleteAnchor.addEventListener('click', openModal);
+
+cancelButton.addEventListener('click', closeModal);
+
+confirmButton.addEventListener('click', deleteEntry);
 
 newButton.addEventListener('click', handleViewNavigation);
 

@@ -21,6 +21,17 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="background-color-gray font-family-proza-libre">
+  <div class="hidden overlay">
+    <div class="modal-container">
+      <div class="modal">
+        <p class="modal-text">Are you sure you want to delete this entry?</p>
+        <div class="row padding-left-right-1rem justify-content-space-between">
+          <button class="cancel-button">CANCEL</button>
+          <button class="confirm-button">CONFIRM</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <header class="background-color-purple white">
     <div class="container row align-items-center">
       <h3>Code Journal</h3>
@@ -72,16 +83,16 @@
               </div>
               <textarea required="required" id="notes" name="notes"></textarea>
             </div>
-            <div class="row align-items-center">
-              <div class="column-half padding-0">
-                <a class="hidden delete-anchor red" href="#">Delete Entry</a>
-              </div>
-              <div class="column-half padding-0 text-align-right">
-                <input class="save-button background-color-purple white" type="submit" value="SAVE">
+            <div class="row margin-top-1rem">
+                <div class="column-permahalf">
+                  <a class="hidden delete-anchor red" href="#">Delete Entry</a>
+                </div>
+                <div class="column-permahalf text-align-right">
+                  <input class="save-button background-color-purple white" type="submit" value="SAVE">
+                </div>
               </div>
             </div>
           </div>
-        </div>
       </form>
     </div>
   </main>

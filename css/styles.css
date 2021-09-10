@@ -38,12 +38,67 @@ textarea:focus {
   outline-color: #4b2373;
 }
 
+button {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+  border: none;
+}
+
+button:active {
+  transform: translateY(0.25rem);
+}
+
+/* Semantic classes */
+
 .header-text {
   font-size: 1.17rem;
   font-weight: bold;
 }
 
-/* Semantic classes */
+.overlay {
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+}
+
+.modal-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.modal {
+  border-radius: 10px;
+  width: 24rem;
+  height: 10rem;
+  text-align: center;
+  background-color: white;
+  padding: 0;
+  z-index: 2;
+}
+
+.modal-text {
+  margin-top: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.cancel-button {
+  background-color: #b6b6b6;
+}
+
+.confirm-button {
+  background-color: #dc2626;
+  color: white;
+}
 
 .entries-anchor {
   color: white;
@@ -52,9 +107,6 @@ textarea:focus {
 
 .save-button {
   width: 5rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 0.25rem;
   border: none;
 }
 
@@ -64,21 +116,16 @@ textarea:focus {
 
 .new-button {
   width: 4.5rem;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 0.25rem;
-  border: none;
-}
-
-.new-button:active {
-  transform: translateY(0.25rem);
 }
 
 .delete-anchor {
   color: #dc2626;
   font-family: Roboto, sans-serif;
+  margin-bottom: 2rem;
+}
+
+.delete-anchor:active {
+  color: darkred;
 }
 
 /* Functional classes */
@@ -145,6 +192,19 @@ textarea:focus {
 
 .padding-0 {
   padding: 0;
+}
+
+.padding-top-1rem {
+  padding-top: 1rem;
+}
+
+.padding-left-right-1rem {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.position-relative {
+  position: relative;
 }
 
 @media screen and (min-width: 768px) {
