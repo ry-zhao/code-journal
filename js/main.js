@@ -12,6 +12,8 @@ var deleteAnchor = document.querySelector('.delete-anchor');
 var overlay = document.querySelector('.overlay');
 var cancelButton = document.querySelector('.cancel-button');
 var confirmButton = document.querySelector('.confirm-button');
+var searchButton = document.querySelector('.fa-search');
+var searchBar = document.querySelector('.search-bar');
 
 switchViews(data.view);
 
@@ -150,6 +152,12 @@ function deleteEntry(event) {
   newEditEntry.textContent = 'New Entry';
   switchViews('entries');
 }
+
+function search() {
+  console.log(searchBar.value);
+}
+
+searchButton.addEventListener('click', search);
 
 entries.addEventListener('click', openEditor);
 

@@ -60,6 +60,15 @@ button:active {
   font-weight: bold;
 }
 
+.fa-search {
+  padding-left: 1rem;
+  padding-top: 0.4rem;
+}
+
+.fa-search:active {
+  transform: translateY(0.25rem);
+}
+
 .overlay {
   background-color: rgba(0, 0, 0, 0.8);
   width: 100%;
